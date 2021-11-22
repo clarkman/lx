@@ -1,0 +1,9 @@
+Enabled non-free in /etc/apt/sources
+apt-get update
+apt-get upgrade
+apt install firmware-misc-nonfree
+
+dmesg clean!
+
+apt-get install vim-nox git cmake cmake-gui
+
