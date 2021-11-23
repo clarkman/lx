@@ -1,9 +1,26 @@
 Enabled non-free in /etc/apt/sources
-apt-get update
-apt-get upgrade
-apt install firmware-misc-nonfree
+root@pelican:~# apt-get update
+root@pelican:~# apt-get upgrade
+root@pelican:~# apt install firmware-misc-nonfree
 
 dmesg clean!
 
-apt-get install vim-nox git cmake cmake-gui
+root@pelican:~# apt-get install vim-nox git cmake cmake-gui
+
+bro@pelican:~$ git clone https://github.com/clarkman/lx.git
+Cloning into 'lx'...
+# Creat new machine file: hosts/pelican
+bro@pelican:~/lx$ git add *
+
+bro@pelican:~/lx$ git config --global user.email "cdunson@gmail.com"
+bro@pelican:~/lx$ git config --global user.name "Clarkman"
+bro@pelican:~/lx$ git commit -m "Hello pelican!"
+[main 6995f9a] Hello pelican!
+ 1 file changed, 9 insertions(+)
+ create mode 100644 hosts/pelican
+
+# Synaptic: Geany; Arduino IDE; UEFI Tool; Wireshark; Chromium;
+
+apt-get install minicom
+apt-get install rsync
 
