@@ -1,0 +1,31 @@
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install open-vm-tools-desktop
+sudo apt-get install vim-nox
+sudo apt-get install build-essential
+sudo apt-get install ncurses-bin ncurses-dev
+sudo apt-get install mtools
+sudo apt-get install nmap
+sudo apt-get install cmake cmake-gui
+sudo apt-get install minicom
+# Called out by Antimony build
+sudo apt-get install git libpng-dev python3-dev libboost-all-dev libgl1-mesa-dev lemon flex qt5-default ninja-bui
+sudo apt-get install git-doc git-email git-gui gitweb
+# For LyX build
+sudo apt-get install libqt5gui5 libqt5svg5 qt5-gtk-platformtheme qt5-image-formats-plugins qtwayland5 libqt5svg5-dev
+# LyX add-ons
+sudo apt-get install evince fonts-lyx ghostscript imagemagick poppler-utils preview-latex-style psutils groff latex2rtf librsvg2-bin
+# Octave
+sudo apt-get install octave-doc, octave-info octave-htmldoc liboctave-dev 
+sudo apt-get install octave-control octave-image octave-io octave-optim octave-signal octave-statistics
+sudo apt-get install gcc g++ gfortran make libblas-dev liblapack-dev libpcre3-dev libarpack2-dev libcurl4-gnutls-dev epstool libfftw3-dev fig2dev libfltk1.3-dev libfontconfig1-dev libfreetype6-dev libgl2ps-dev libglpk-dev libreadline-dev gnuplot libgraphicsmagick++1-dev libhdf5-dev openjdk-11-jdk libsndfile1-dev llvm-dev texinfo libgl1-mesa-dev libosmesa6-dev pstoedit portaudio19-dev libjack-jackd2-dev libqhull-dev libqrupdate-dev libqt5core5a qtbase5-dev qttools5-dev qttools5-dev-tools libqscintilla2-qt5-dev libsuitesparse-dev texlive texlive-latex-extra libxft-dev zlib1g-dev autoconf automake bison flex gperf gzip icoutils librsvg2-bin libtool perl rsync tar libsundials-dev git
+# Julia
+sudo apt-get install julia julia-doc vim-julia
+# GDB
+sudo apt-get install gdb
+# J
+sudo apt install qt5-default libqt5websockets5-dev libqt5svg5-dev
+sudo apt install qtwebengine5-dev qtmultimedia5-dev libqt5multimedia5-plugins
+
+sudo apt-get install dos2unix
+sudo apt-get install doxygen doxygen-doc doxygen-gui graphviz graphviz-doc 

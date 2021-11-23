@@ -1,0 +1,82 @@
+### BASH SHELL STUFF ####
+#
+#export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
+export HISTCONTROL=ignoreboth
+export HISTTIMEFORMAT="%a, %F %H:%M:%S  "
+# Prompt o matic
+#export PS1="\[\e[0;32m\]\u\[\e[0;0m\]@\[\e[0;34m\]\h\[\e[0;0m\]:\[\e[0;33m\]\W\[\e[0;0m\]$"
+#export PS1="\[\e[0;31m\]\u\[\e[0;0m\]@\[\e[0;34m\]\h\[\e[0;0m\]:\[\e[0;33m\]\W\[\e[0;0m\]#"
+#export PS1="\[\e[0;32m\]\u\[\e[0;0m\]@\[\e[0;34m\]\h\[\e[0;0m\]:\[\e[0;33m\]\W\[\e[0;0m\]$"
+# From nano head
+#export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
+export CLICOLOR=1
+#export LSCOLORS=ExFxBxDxCxegedabagacad
+export LS_COLORS='di=95:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
+
+
+# Oldies but goodies
+#alias ls='ls -Gh'
+alias ll='ls -l'
+alias lr='ll -atr'
+alias la='ll -a'
+alias hg='history | /usr/bin/grep'
+alias hs='history'
+alias eg='env | /usr/bin/grep'
+alias pg='ps -ef | /usr/bin/grep'
+alias man='man -a'
+alias pd='pushd'
+#alias grep='grep -n'
+alias make='make -j4'
+#alias mcode='pushd ~/Desktop/Projects/SST/src/Artemis/tools/afusion/mcode'
+#alias julia='/Applications/Julia-1.3.app/Contents/Resources/julia/bin/julia'
+
+# OLD CVS stuff from the day
+#export CVSROOT=:pserver:cuz@192.168.0.22:/Users/cuz/cvsroot
+#alias cvs='cvs -d :ext:cuz@192.168.0.22:/Users/cuz/cvsroot'
+#alias cvsf='cvs -z3 -d:ext:darryan@ucsp.cvs.sourceforge.net:/cvsroot/ucsp'
+#alias cvsq='cvs -d :ext:qcvs@quakedata:/cvsroot'
+#CVS_MAX_SIZE=2500
+#CVSROOT=:pserver:qcvs@quakedata:/home/qcvs/cvsroot
+#CVS_BACKUP_PATH=/mnt/Public/Development/cvsBackups
+#CVS_COPIES=15
+#CVS_HOST=qcvs@quakedata
+#CVS_MIN_SIZE=300
+#CVS_SOURCE=/cvsroot
+
+# Build Stuff
+#export CFLAGS="-I/usr/local/include"
+#export CPPFLAGS="-I/usr/local/include"
+#export LDFLAGS="-L/usr/local/lib"
+
+# Installed stuff
+#alias jq='open -a ~/Applications/j64-804/jqt.app/'
+
+# Projects
+#alias src='pd $HOME/src'
+#alias qed='pd $HOME/Desktop/Projects/QED'
+#PROJ_HOME='/Users/cuz/Desktop/Projects/Public'
+#export ZXROOT=${PROJ_HOME}/src/zx
+#. ${ZXROOT}/env/osx.bash
+
+# Bases
+SOURCE_ROOT=${HOME}/src
+INSTALL_ROOT=${HOME}/Installs
+
+# zx
+export ZXROOT=${SOURCE_ROOT}/zx
+. ${ZXROOT}/env/linux.bash
+alias zx='cd $ZXROOT'
+alias szx='cd $ZXROOT/src'
+
+# BRL-CAD
+BRLCAD_VERSION='rel-7.32.3'
+PATH="$PATH:/usr/brlcad/$BRLCAD_VERSION/bin"
+
+# Julia
+JULIA_VERSION='julia-1.6.1'
+export PATH="$PATH:${INSTALL_ROOT}/${JULIA_VERSION}/bin"
+
+# Little old me
+export PATH=$PATH:/home/cuz/bin
+
+#alias cycli='cycli --username neo4j --password 20rkul8t0r'
