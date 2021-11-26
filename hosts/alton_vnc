@@ -1,0 +1,70 @@
+#install
+$ sudo apt install -y novnc x11vnc
+#startup
+$ x11vnc -display :0 -autoport -localhost -nopw -bg -xkb -ncache -ncache_cr -quiet -forever
+#double check which port is being used for VNC:
+$ ss -antp | grep vnc
+#launch (no ssh)
+$ /usr/share/novnc/utils/launch.sh --listen 8081 --vnc localhost:5900
+#launch (yes ssh)
+$ sudo systemctl enable ssh --now
+
+#Or not.
+$ sudo apt install tigervnc-standalone-server -yr
+
+$ vncpasswd                                                                                                                                                                                                                           130 ⨯
+Password:
+Verify:
+Would you like to enter a view-only password (y/n)? n
+
+$ vncserver -localhost no
+
+# Try something simple like:
+tigervncserver -xstartup /usr/bin/xterm
+New Xtigervnc server 'alton:1 (bro)' on port 5901 for display :1.
+Use xtigervncviewer -SecurityTypes VncAuth -passwd /home/bro/.vnc/passwd :1 to connect to the VNC server.
+
+# Create:
+
+$HOME/.vnc/Xtigervnc-session
+
+# With
+_______________________________________
+#!/bin/sh
+xrdb $HOME/.Xresources
+xsetroot -solid grey
+autocutsel -fork
+# Fix to make GNOME work
+# export XKL_XMODMAP_DISABLE=1
+#/etc/X11/Xsession
+#/usr/bin/xterm
+env -i /bin/sh -c "export PATH=$PATH;
+                   export XAUTHORITY=$XAUTHORITY;
+                   export DISPLAY=$DISPLAY;
+                   export HOME=$HOME;
+                   export LOGNAME=$LOGNAME;
+                   export USER=$USER;
+                   /usr/bin/xfce4-session"
+________________________________________
+
+# Open port in firewall
+──(root💀alton)-[~]
+└─# iptables-save > IPtablesbackup.txt
+                                                                                                                                            
+┌──(root💀alton)-[~]
+└─# iptables -A INPUT -p tcp --dport 5901 -j ACCEPT
+                                                                                                                                            
+┌──(root💀alton)-[~]
+└─# iptables -L                                    
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:5901
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+# Access from remote host:
+$ xtigervncviewer -SecurityTypes VncAuth 10.0.1.225:1

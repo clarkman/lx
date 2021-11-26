@@ -1,0 +1,23 @@
+
+### ZSH SHELL STUFF ####
+#
+
+
+# Oldies but goodies
+#alias ls='ls -Gh'
+alias ll='ls -l'
+alias lr='ll -atr'
+alias la='ll -a'
+alias history='fc -il 1'
+alias hg='history | /usr/bin/grep'
+alias hs='history'
+alias eg='env | /usr/bin/grep'
+alias pg='ps -ef | /usr/bin/grep'
+alias man='man -a'
+alias pd='pushd'
+alias make='make -j4'
+
+# Little old me
+export PATH=$PATH:$HOME/bin
+
+bindkey \^U backward-kill-line

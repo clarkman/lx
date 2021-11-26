@@ -1,0 +1,39 @@
+$ uname -a
+Linux alton 5.10.0-kali9-amd64 #1 SMP Debian 5.10.46-4kali1 (2021-08-09) x86_64 GNU/Linux
+$ uname -r
+5.10.0-kali9-amd64
+$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Kali
+Description:    Kali GNU/Linux Rolling
+Release:        2021.3
+Codename:       kali-rolling
+
+
+
+Enabled non-free in /etc/apt/sources
+root@pelican:~# apt-get update
+root@pelican:~# apt-get upgrade
+root@pelican:~# apt install firmware-misc-nonfree
+
+dmesg clean!
+
+root@pelican:~# apt-get install vim-nox git cmake cmake-gui
+
+bro@pelican:~$ git clone https://github.com/clarkman/lx.git
+Cloning into 'lx'...
+# Creat new machine file: hosts/pelican
+bro@pelican:~/lx$ git add *
+
+bro@pelican:~/lx$ git config --global user.email "cdunson@gmail.com"
+bro@pelican:~/lx$ git config --global user.name "Clarkman"
+bro@pelican:~/lx$ git commit -m "Hello pelican!"
+[main 6995f9a] Hello pelican!
+ 1 file changed, 9 insertions(+)
+ create mode 100644 hosts/pelican
+
+# Synaptic: Geany; Arduino IDE; UEFI Tool; Wireshark; Chromium;
+
+apt-get install minicom
+apt-get install rsync
+

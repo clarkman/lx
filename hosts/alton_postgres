@@ -1,0 +1,14 @@
+ Obsolete major version 13                                                                                                                                                                                                              │  
+  │                                                                                                                                                                                                                                        │  
+  │ The PostgreSQL version 13 is obsolete, but the server or client packages are still installed. Please install the latest packages (postgresql-14 and postgresql-client-14) and upgrade the existing  clusters with pg_upgradecluster    │  
+  │ (see manpage).                                                                                                                                                                                                                         │  
+  │                                                                                                                                                                                                                                        │  
+  │ Please be aware that the installation of postgresql-14 will automatically create a default cluster 14/main. If you want to upgrade the 13/main cluster, you need to remove the already existing 14 cluster (pg_dropcluster --stop 14   │  
+  │ main, see manpage for details).                                                                                                                                                                                                        │  
+  │                                                                                                                                                                                                                                        │  
+  │ The old server and client packages are no longer supported. After the existing clusters are upgraded, the postgresql-13 and postgresql-client-13 packages should be removed.                                                           │  
+  │                                                                                                                                                                                                                                        │  
+  │ Please see /usr/share/doc/postgresql-common/README.Debian.gz for details.    
+
+
+
