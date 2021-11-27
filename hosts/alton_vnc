@@ -17,10 +17,8 @@ Password:
 Verify:
 Would you like to enter a view-only password (y/n)? n
 
-$ vncserver -localhost no
-
-# Try something simple like:
-tigervncserver -xstartup /usr/bin/xterm
+# Try something simple like (to troubleshoot):
+$ tigervncserver -xstartup /usr/bin/xterm
 New Xtigervnc server 'alton:1 (bro)' on port 5901 for display :1.
 Use xtigervncviewer -SecurityTypes VncAuth -passwd /home/bro/.vnc/passwd :1 to connect to the VNC server.
 
@@ -66,5 +64,10 @@ target     prot opt source               destination
 Chain OUTPUT (policy ACCEPT)
 target     prot opt source               destination         
 
+sudo apt-get install iptables-persistent
+sudo /etc/init.d/iptables-persistent save 
+sudo /etc/init.d/iptables-persistent reload
+
+
 # Access from remote host:
-$ xtigervncviewer -SecurityTypes VncAuth 10.0.1.225:1
+$ xtigervncviewer 10.0.1.225:1
