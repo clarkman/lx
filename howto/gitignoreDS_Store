@@ -1,0 +1,8 @@
+Since you probably never want to include .DS_Store files, make a global rule. First, make a global .gitignore file somewhere, e.g.
+
+echo .DS_Store >> ~/.gitignore_global
+
+Now tell git to use it for all repositories:
+
+git config --global core.excludesfile ~/.gitignore_global
+

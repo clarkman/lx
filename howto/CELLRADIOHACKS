@@ -1,0 +1,273 @@
+Quectel ICCID: 89011703278777398945
+
+Old SIM: 89011703278246524915
+
+T Sim: 89011703278375064980
+
+New T Sim: 89011703278777398937
+
+New Q Sim: 89011703278777398929
+
+Original Elliot 89011703278777398960
+
+ModemManager > qdbg5 2>&1 &
+
+stty -F /dev/ttyUSB0 ignbrk -brkint -icrnl -opost -onlcr -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke
+stty -F /dev/ttyUSB2 ignbrk -brkint -icrnl -opost -onlcr -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke
+cat /dev/ttyUSB2 &
+echo -n -e "ATI\r" > /dev/ttyUSB2
+
+# CHECK ERRORS
+echo -n -e "AT#CEERNET\r" > /dev/ttyUSB2
+
+/usr/sbin/ModemManager --debug &
+
+ mmcli --bearer 0
+
+ pppd call att-lte
+
+ ABORT ERROR
+'' AT
+OK AT+CMEE=2
+OK AT+CEMODE=2
+OK AT#GPIO=1,0,2
+OK AT+CFUN=1
+OK AT+CGATT=1
+OK AT+CGDCONT=2,"IP","shotspotter01.com.attz"
+OK ATD*99***2#
+CONNECT ''
+
+root@focal-venice:~# echo -n -e "AT+GMM\r" > /dev/ttyUSB2
+root@focal-venice:~# 
+LE910C4-NF
+
+OK
+
+root@focal-venice:~# echo -n -e "AT#SWPKGV\r" > /dev/ttyUSB2
+root@focal-venice:~# 
+25.21.660-P0F.661803
+M0F.660010
+P0F.661803
+A0F.660010
+
+OK
+
+root@focal-venice:~# echo -n -e "AT+CPIN?\r" > /dev/ttyUSB2
+root@focal-venice:~# 
++CPIN: READY
+
+root@focal-venice:~# echo -n -e "AT+CEREG?\r" > /dev/ttyUSB2
+root@focal-venice:~# 
++CEREG: 0,2
+
+OK
+
+root@focal-venice:~# echo -n -e "AT+CGDCONT?\r" > /dev/ttyUSB2
+root@focal-venice:~# 
++CGDCONT: 1,"IPV4V6","m2m.com.attz","",0,0,0,0
++CGDCONT: 2,"IPV4V6","ims","",0,0,0,0
++CGDCONT: 3,"IPV4V6","sos","",0,0,0,1
++CGDCONT: 4,"IPV4V6","attm2mglobal","",0,0,0,0
+
+
+root@focal-venice:~# echo -n -e "AT+CGDCONT?\r" > /dev/ttyUSB2
+root@focal-venice:~# 
++CGDCONT: 1,"IPV4V6","m2m.com.attz","",0,0,0,0
++CGDCONT: 2,"IPV4V6","ims","",0,0,0,0
++CGDCONT: 3,"IPV4V6","sos","",0,0,0,1
++CGDCONT: 4,"IPV4V6","attm2mglobal","",0,0,0,0
+
+OK
+
+root@focal-venice:~# echo -n -e "at+CGDCONT=1,"IPV4V6","shotspotter01.com.attz"\r" > /dev/ttyUSB2
+root@focal-venice:~# 
++CME ERROR: Invalid Parameter
+
+root@focal-venice:~# echo -n -e "AT+CGDCONT?\r" > /dev/ttyUSB2
+root@focal-venice:~# 
++CGDCONT: 1,"IPV4V6","m2m.com.attz","",0,0,0,0
++CGDCONT: 2,"IPV4V6","ims","",0,0,0,0
++CGDCONT: 3,"IPV4V6","sos","",0,0,0,1
++CGDCONT: 4,"IPV4V6","attm2mglobal","",0,0,0,0
+
+OK
+
+root@focal-venice:~# echo -n -e "at+CGDCONT=1,"IPV4V6","shotspotter01.com.attz"\r" > /dev/ttyUSB2
+root@focal-venice:~# 
++CME ERROR: Invalid Parameter
+
+root@focal-venice:~# echo -n -e "at+CGDCONT=1,"IP","shotspotter01.com.attz"\r" > /dev/ttyUSB2
+root@focal-venice:~# 
++CME ERROR: Invalid Parameter
+
+root@focal-venice:~# echo -n -e 'at+CGDCONT=1,"IP","shotspotter01.com.attz"\r' > /dev/ttyUSB2
+root@focal-venice:~# 
+OK
+
+root@focal-venice:~# echo -n -e "AT+CGDCONT?\r" > /dev/ttyUSB2
+root@focal-venice:~# 
++CGDCONT: 1,"IP","shotspotter01.com.attz","",0,0,0,0
++CGDCONT: 2,"IPV4V6","ims","",0,0,0,0
++CGDCONT: 3,"IPV4V6","sos","",0,0,0,1
++CGDCONT: 4,"IPV4V6","attm2mglobal","",0,0,0,0
+
+OK
+
+root@focal-venice:~# echo -n -e "At+CFUn=4\r" > /dev/ttyUSB2
+root@focal-venice:~# 
+OK
+
++CEREG: 0
+
+root@focal-venice:~# echo -n -e "At+CFUn=1\r" > /dev/ttyUSB2
+root@focal-venice:~# 
+OK
+
++PACSP0
+
++CEREG: 2
+
+root@focal-venice:~# 
++CEREG: 1,"8B35","A38850F",7
+
+root@focal-venice:~# 
++CEREG: 1,"8B35","A3885AB",7
+
+root@focal-venice:~# 
++CEREG: 1,"8B35","A38850F",7
+
++CEREG: 1,"8B35","A3885AB",7
+
+root@focal-venice:~# echo -n -e "At#sgact=1,1\r" > /dev/ttyUSB2
+root@focal-venice:~# 
+#SGACT: 10.65.86.175
+
+OK
+
+root@focal-venice:~# echo -n -e "At#ping=10.111.0.51\r" > /dev/ttyUSB2
+root@focal-venice:~# 
+#PING: 01,"10.111.0.51",1,58
+#PING: 02,"10.111.0.51",0,58
+^C
+root@focal-venice:~# #PING: 04,"10.111.0.51",0,58
+#PING: 03,"10.111.0.51",600,255
+
+OK
+
++CEREG: 1,"8B35","A3885AB",7
+
++CEREG: 1,"8B35","A3885AB",7
+
+root@focal-venice:~# echo -n -e "AT#AT#SGACT=1,0\r" > /dev/ttyUSB2
+root@focal-venice:~# 
++CME ERROR: unknown
+
++CEREG: 1,"8B35","A211E10",7
+
+root@focal-venice:~# echo -n -e "AT#SGACT=1,0\r" > /dev/ttyUSB2
+root@focal-venice:~# 
+OK
+
+root@focal-venice:~# echo -n -e 'at+CGDCONT=1,"IPV4V6","shotspotter01.com.attz"\r' > /dev/ttyUSB2
+root@focal-venice:~# 
+OK
+
+root@focal-venice:~# echo -n -e "At#ping=10.111.0.51\r" > /dev/ttyUSB2
+root@focal-venice:~# 
++CME ERROR: Can not resolve name
+^C
+root@focal-venice:~# echo -n -e "at+cfun=4\r" > /dev/ttyUSB2
+root@focal-venice:~# 
+OK
+
++CEREG: 0
+
+root@focal-venice:~# echo -n -e "at+cfun=1\r" > /dev/ttyUSB2
+root@focal-venice:~# 
+OK
+
++PACSP0
+
++CEREG: 2
+
+root@focal-venice:~# 
++CEREG: 1,"8B35","A3885AB",7
+echo -n -e "at+cfun=1
++CEREG: 1,"8B35","A3885AB",7
+
++CEREG: 1,"8B35","A3885AB",7
+
+root@focal-venice:~# echo -n -e "At#ping=10.111.0.51\r" > /dev/ttyUSB2
++CEREG: 1,"8B35","A38850F",7
+                     
++CEREG: 1,"8B35","A3885AB",7
+
+root@focal-venice:~# echo -n -e 'at+CGDCONT=1,"IPV4V6","shotspotter01.com.attz"\r' > /dev/ttyUSB2
++CEREG: 1,"8B35","A38850F",7
+                                'at+CGDCONT=1,"IPV4V6","shotspotter01.com.attz"\r'
++CEREG: 1,"8B35","A3885AB",7
+                                "AT#SGACT=1,1\r"
+root@focal-venice:~# 
+#SGACT: 10.65.45.156,
+
+OK
+
+root@focal-venice:~# 
++CEREG: 1,"8B35","A38850F",7
+echo -n -e "At#ping=1echo -n -e "At#ping=10.111.0.51\r" > /dev/ttyUSB2
+root@focal-venice:~# echo -n -e "At#ping=10.111.0.51\r" > /dev/ttyUSB2
+root@focal-venice:~# 
+#PING: 01,"10.111.0.51",0,58
+#PING: 02,"10.111.0.51",0,58
+#PING: 03,"10.111.0.51",2,58
+#PING: 04,"10.111.0.51",0,58
+
+OK
+
++CEREG: 1,"8B35","A3885AB",7
+
++CEREG: 1,"8B35","A211E10",7
+
+
+stty -F /dev/ttyUSB2 ignbrk -brkint -icrnl -opost -onlcr -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke
+cat /dev/ttyUSB2 &
+echo -n -e "AT+CMEE=2\r" > /dev/ttyUSB2
+
+
+echo -n -e "ATI\r" > /dev/ttyUSB2
+echo -n -e "ATI\r" > /dev/ttyUSB2
+echo -n -e "ATI\r" > /dev/ttyUSB2
+echo -n -e "ATI\r" > /dev/ttyUSB2
+echo -n -e "ATI\r" > /dev/ttyUSB2
+echo -n -e "ATI\r" > /dev/ttyUSB2
+echo -n -e "ATI\r" > /dev/ttyUSB2
+echo -n -e "ATI\r" > /dev/ttyUSB2
+echo -n -e "ATI\r" > /dev/ttyUSB2
+
+
+AT+GMM
+AT#SWPKGV
+AT+CPIN?
+AT+CEREG?
+AT+CGDCONT?
+AT#FWSWITCH?
+AT+CFUn=4
+At+CFUn=1
+MuhammadMa to Everyone (2:07 PM)
+AT+CEREG=2
+AT+CeREG?
+AT+CMEE=2
+Me to Everyone (2:11 PM)
+shotspotter01.com.attz
+MuhammadMa to Everyone (2:11 PM)
+at+cgdcont?
+at+CGDCONT=1,"IPV4V6","shotspotter01.com.attz"
+MuhammadMa to Everyone (2:16 PM)
+At#sgact=1,1
+at+CGDCONT=1,"IPV4V6","shotspotter01.com.attz"
+AT#SGACT=1,0
+at+cfun=4
+at+cfun=1
+at#sgact=1,1
+at#ping=
+
