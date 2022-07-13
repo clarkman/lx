@@ -1,0 +1,19 @@
+Hit any key to stop autoboot:  0 
+
+# Set static addresses
+u-boot=> setenv ipaddr 10.0.1.152
+u-boot=> setenv serverip 10.0.1.62
+u-boot=> setenv netmask 255.255.255.0 # Only if needed
+u-boot=> setenv gatewayip 10.0.1.1 # Only if needed
+
+# OR use DHCP. NOTE: Uses router ip as tftp source
+u-boot=> setenv autoload 0; bootp
+
+# Choose the device to update
+setenv dev 2 # sets MMC device to be flashed - see mmc list
+
+# Set image name
+setenv image myname.img.gz # Place any tftp server directories in front of the filename
+
+# Update
+run update_all
