@@ -1,0 +1,30 @@
+
+
+# Connman stuff from https://variwiki.com/index.php?title=Static_IP_Address
+
+# List them
+$ sudo connmanctl services
+*AO Wired                ethernet_0eb31468dcc9_cable
+
+
+# connmanctl config <service> --ipv4 manual <ip address> <netmask> <gateway>
+# connmanctl config <service> --nameservers <dns-addr> 
+For example:
+$ sudo connmanctl config ethernet_0eb31468dcc9_cable --ipv4 manual 192.168.1.100 255.255.255.0 192.168.1.254
+$ sudo connmanctl config ethernet_0eb31468dcc9_cable --nameservers 8.8.8.8 4.4.4.4 
+
+or:
+$ sudo connmanctl
+> config ethernet_0eb31468dcc9_cable --ipv4 manual 192.168.1.100 255.255.255.0 192.168.1.254
+> config ethernet_0eb31468dcc9_cable --nameservers 8.8.8.8 4.4.4.4
+> exit
+
+also:
+$ sudo connmanctl state
+
+
+# DNS
+sudo nano /etc/resolv.conf
+nameserver 8.8.8.8
+
+sudo systemctl restart systemd-resolved.service

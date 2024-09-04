@@ -1,0 +1,10 @@
+Make sure you have NFS server support in your server's kernel (kernel module named "knfsd.ko" under your /lib/modules/uname -r/ directory structure)
+
+  $ grep NFSD /boot/config-`uname -r`
+or similar (wherever you've stashed your config file, for example, perhaps in /usr/src/linux/.config.)
+
+Then, note that there are at least two mainstream NFS server implementations at present (excluding those implemented in Python and similar): one implemented in user space (slower, easier to debug), and the other implemented in kernel space (faster.) The below shows the setup of the kernel-space one. If you wish to use the user-space server, then install the similarly-named package.
+
+First, the packages to begin with:
+
+ $ apt install nfs-kernel-server portmap
