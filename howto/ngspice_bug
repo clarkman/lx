@@ -1,0 +1,11 @@
+
+
+I just hit this too. It happens if you try to install ngspice with kicad installed.
+
+It seems kicad can actually use the standard libngspice0 package, so the workaround is to
+
+apt install --mark-auto libngspice0
+apt install ngspice
+
+I wonder why kicad needs its custom package. Maybe it should prefer libngspice0.
+

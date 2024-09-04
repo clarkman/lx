@@ -1,0 +1,1 @@
+sudo apt-get install sed make binutils build-essential diffutils gcc g++ bash patch gzip bzip2 perl tar cpio unzip rsync file bc findutils bison flex gettext texinfo git-core libtool autoconf wget curl libncurses5-dev ssh telnet

@@ -1,0 +1,41 @@
+#!/bin/sh
+
+echo "Usage:"
+echo "makeStaticIP DEVICE IPADDRESS"
+echo "Example:"
+echo "makeStaticIP enx00e04c680fdc 192.168.2.1"
+echo "NOTE: Class C Networks only!!!"
+
+if [ -z "$1" ]; then
+	echo "Must supply device name!"
+	exit 1;
+fi
+
+if [ -z "$2" ]; then
+        echo "Must supply IP address!"
+        exit 2;
+fi
+
+DEV=$1
+if ifconfig | grep $DEV > /dev/null
+then
+	echo Found $DEV
+else
+	echo "$DEV NOT FOUND"
+	exit 3;
+fi
+
+echo "TODO: check ip address: $2"
+
+IPADDR=$2
+
+#ip address show dev $DEV
+ip address flush dev $DEV
+ip route flush dev $DEV
+sudo ip address add ${IPADDR}/24 brd + dev $DEV
+sudo ip route add $IPADDR dev $DEV
+sudo ip route add default via $IPADDR dev $DEV
+ip address show dev $DEV
+
+exit 0;
+

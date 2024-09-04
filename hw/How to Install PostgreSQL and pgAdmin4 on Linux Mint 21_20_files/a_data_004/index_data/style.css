@@ -1,0 +1,59 @@
+body,
+body * {
+	vertical-align: baseline;
+	border: 0 none;
+	outline: 0;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.dynamicAdvertContainer {
+	display: none;
+	position: absolute;
+	cursor: pointer;
+	width: 728px;
+	height: 90px;
+	border: 1px solid black;
+	box-sizing: border-box;
+	overflow: hidden;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-smoothing: grayscale;
+	background-color: white;
+}
+
+b {
+	font-family: 'infiniti_brandbold';
+}
+
+:focus {
+	outline: none;
+}
+
+::-moz-focus-inner {
+	border: 0;
+}
+
+@font-face {
+	font-family: 'infiniti_brandbold';
+	src: url('https://s0.2mdn.net/creatives/assets/3299911/infinitibrand-bold-webfont.woff2') format('woff2'),
+		url('https://s0.2mdn.net/creatives/assets/3299911/infinitibrand-bold-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'infiniti_brandlight';
+	src: url('https://s0.2mdn.net/creatives/assets/3299911/infinitibrand-light-webfont.woff2') format('woff2'),
+		url('https://s0.2mdn.net/creatives/assets/3299911/infinitibrand-light-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'infiniti_brandregular';
+	src: url('https://s0.2mdn.net/creatives/assets/3299911/infinitibrand-regular-webfont.woff2') format('woff2'),
+		url('https://s0.2mdn.net/creatives/assets/3299911/infinitibrand-regular-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
