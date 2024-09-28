@@ -220,6 +220,8 @@ if [ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
 fi
 
+#source $HOME/.oh-my-zsh/oh-my-zsh.sh
+
 # zx
 export ZXROOT=${HOME}/src/zx
 . ${ZXROOT}/env/linux.bash
@@ -252,6 +254,9 @@ alias etcher='/home/cuz/bin/balenaEtcher-linux-x64/balena-etcher --no-sandbox'
 # Little old me
 export PATH=$PATH:$HOME/bin
 
+#From gogh:
+export TERMINAL=gnome-terminal
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/cuz/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -266,5 +271,6 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6
 
 alias startPg='~/pgadmin4/pgadmin4env/bin/python pgadmin4env/lib/python3.10/site-packages/pgadmin4/pgAdmin4.py'

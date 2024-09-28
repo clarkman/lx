@@ -1,0 +1,36 @@
+apt install zsh
+apt install zsh-doc
+sudo apt install cinnamon-doc
+sudo apt install vim-nox neovim
+# Installed Anaconda3 via Anaconda3-2024.06-1-Linux-x86_64.sh
+# To remove startup from .bashrc, etc.:
+conda config --set auto_activate_base false
+sudo apt install curl
+sudo apt install git git-cola git-doc
+sudo apt-get install dconf-cli uuid-runtime
+git clone https://github.com/Gogh-Co/Gogh.git gogh
+export TERMINAL=gnome-terminal
+# After conda install, there was a MESA GL problem. Fixed by:
+find / -name libstdc++.so.6 2>/dev/null
+# and then
+export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6
+# Octave
+sudo apt-get install octave
+# NADA sudo apt-get install octave-doc octave-info octave-htmldoc 
+sudo apt-get install liboctave-dev
+sudo apt-get install octave-control octave-image octave-io octave-optim octave-signal octave-statistics
+sudo apt-get install pgp # OOPs part of Claw Mail 
+sudo apt-get install gpg 
+sudo dpkg -i sublime-text_build-4180_amd64.deb
+# Enabled large fonts in Accessibility, but text in start menu became clipped.
+# Fixed by selecting a different theme per:
+# https://forums.linuxmint.com/viewtopic.php?t=288168
+# Bookmarks for Octave docs
+find /usr/share/doc | grep -i octave | grep index
+xdg-open /usr/share/doc/octave/liboctave.html/index.html
+xdg-open /usr/share/doc/octave/octave.html/index.html
+xdg-open /usr/share/doc/octave-optim/html/index.html
+# Turn off sublime copy empty line
+"copy_with_empty_selection": false,
+# Changed *.m association from Objective-C to Matlab:
+# View -> Syntax -> Open all with current extension as... ->[your syntax choice]
