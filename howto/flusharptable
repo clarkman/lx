@@ -1,0 +1,4 @@
+# flush arp table
+ip neigh flush all ethX
+
+sudo arping ff:ff:ff:ff:ff:ff
